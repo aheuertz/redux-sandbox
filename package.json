@@ -1,0 +1,37 @@
+{
+  "name": "redux-sandbox",
+  "version": "1.0.0",
+  "description": "Redux sandbox",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "server": "webpack-dev-server",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aheuertz/redux-sandbox.git"
+  },
+  "author": "Alan Heuertz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aheuertz/redux-sandbox/issues"
+  },
+  "homepage": "https://github.com/aheuertz/redux-sandbox#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^3.0.6",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11",
+    "webpack-dev-server": "^3.1.1"
+  }
+}
