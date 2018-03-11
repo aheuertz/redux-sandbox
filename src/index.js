@@ -8,8 +8,10 @@ const App = (props) => (
   <div>
     <h3>This is an App</h3>
     <label>Simple Counter</label>
-    <input type="number" defaultValue={props.state} disabled />
-    <button onClick={props.onIncrement}>Increment</button>
+    <div>
+      <input type="number" defaultValue={props.state} disabled />
+      <button onClick={props.onIncrement}>Increment</button>
+    </div>
   </div>
 )
 
