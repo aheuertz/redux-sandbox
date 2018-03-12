@@ -1,0 +1,18 @@
+version: 0.2
+# https://docs.aws.amazon.com/codebuild/latest/userguide/sample-nodejs-hw.html
+
+phases:
+  install:
+    commands:
+      - echo Installing NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - npm run build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - dist/index.html
+    - dist/main.bundle.js
