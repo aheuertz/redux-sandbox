@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const App = (props) => (
   <div>
-    <h3>This is an App</h3>
+    <h3>This is an App. Nudge.</h3>
     <label>Simple Counter</label>
     <div>
       <input type="number" defaultValue={props.state} disabled />
