@@ -12,6 +12,9 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - echo Uploading assets to S3 bucket 'hueydev-redux-sandbox-static'...
+      - aws s3 cp --recursive --acl public-read ./dist s3://hueydev-redux-sandbox-static/
+      - echo Upload completed on `date`
 artifacts:
   files:
     - dist/index.html
