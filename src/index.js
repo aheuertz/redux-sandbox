@@ -1,42 +1,56 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import {connect, Provider} from 'react-redux';
 import PropTypes from 'prop-types';
+import {Feed} from './components/feed/Feed';
 
 const App = (props) => (
   <div>
     <h3>This is an App. Nudge.</h3>
     <label>Simple Counter</label>
     <div>
-      <input type="number" defaultValue={props.state} disabled />
+      <div>Count: {props.count}</div>
       <button onClick={props.onIncrement}>Increment</button>
+    </div>
+    <div>
+      <Feed/>
     </div>
   </div>
 )
 
 App.propTypes = {
-  state: PropTypes.string,
+  count: PropTypes.number,
   onIncrement: PropTypes.func
 }
 
 const mapStateToProps = (state) => ({
-  state: state
+  count: state.count
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onIncrement: dispatch({type: 'INCREMENT'})
+  onIncrement: () => dispatch({type: 'INCREMENT'})
 })
 
 const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
 
-const reducer = (state, action) => {
+const entriesReducer = (state = [], action) => ([
+  ...state.reverse().slice(0, Math.min(state.length, 10)).reverse(),
+  {timestamp: new Date().getTime(), value: action}
+]);
+
+const countReducer = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1
+      return state + 1;
   }
-  return state || 0
+  return state;
 }
+
+const reducer = combineReducers({
+  entries: entriesReducer,
+  count: countReducer
+})
 
 const store = createStore(reducer);
 
