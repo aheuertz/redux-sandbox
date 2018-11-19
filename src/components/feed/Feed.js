@@ -2,9 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+const formatTimestamp = (timestamp) => (
+  new Date(timestamp).toLocaleTimeString('en-GB', {
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  })
+)
+
 const FeedEntry = (props) => (
   <div style={{border: '1px solid gray'}}>
-    <div><b>Timestamp:</b>&nbsp;{new Date(props.timestamp).toString()}</div>
+    <div><b>Timestamp:</b>&nbsp;{formatTimestamp(props.timestamp)}</div>
     <div><b>Entry:</b>&nbsp;{JSON.stringify(props.value)}</div>
   </div>
 )
